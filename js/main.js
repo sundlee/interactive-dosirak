@@ -102,10 +102,14 @@
 		if (backBtn) {
 			zoomOut();
 		}
-	});
+  });
+  
+  window.addEventListener('animationend', () => {
+    leaflet.style.animation = 'none';
+  });
 
   window.addEventListener('mousemove', (e) => {
-    targetPos.x = e.clientX;
-    targetPos.y = e.clientY;
+    targetPos.x = e.clientX - window.innerWidth * 0.7;
+    targetPos.y = e.clientY - window.innerHeight * 0.7;
   });
 }) ();

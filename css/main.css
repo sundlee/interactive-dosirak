@@ -1,3 +1,12 @@
+@keyframes start-ani {
+  0% {
+    transform: translate(-100%, 100%) rotate(-540deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
 html {
 	font-size: 14px;
 }
@@ -9,6 +18,8 @@ body {
 }
 .hand {
   position: absolute;
+  left: 70%;
+  top: 70%;
   width: 400px;
   z-index: 10;
 }
@@ -31,6 +42,7 @@ body {
   transform-style: preserve-3d;
   transition: 1s;
   cursor: pointer;
+  animation: start-ani 1s forwards;
 }
 .page {
 	position: absolute;
