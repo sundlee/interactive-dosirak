@@ -2,6 +2,7 @@
   const leaflet = document.querySelector('.leaflet');
   const pageElems = document.querySelectorAll('.page');
   let pageCount = 0;
+  let currentMenu;
 
   function getTarget(elem, className) {
     while (!elem.classList.contains(className)) {
@@ -42,8 +43,20 @@
         angle = 30;
         break;
     }
+    document.body.classList.add('zoom-in');
     console.log(elem.parentNode.parentNode.parentNode.dataset.page);
     leaflet.style.transform = `translate3d(${dx}px, ${dy}px, 50vw) rotateY(${angle}deg)`;
+    currentMenu = elem;
+    currentMenu.classList.add('current-menu');
+  }
+
+  function zoomOut() {
+    leaflet.style.transform = 'translate3d(0, 0, 0)';
+    if (currentMenu) {
+      document.body.classList.remove('zoom-in');
+      currentMenu.classList.remove('current-menu');
+      currentMenu = null;
+    }
   }
 
   leaflet.addEventListener('click', (e) => {
@@ -66,5 +79,10 @@
     if (menuItemElem) {
       zoomIn(menuItemElem);
     }
+
+    let backBtn = getTarget(e.target, 'back-btn');
+    if (backBtn) {
+      zoomOut();
+    }
   });
-})();
+}) ();
