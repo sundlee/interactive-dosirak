@@ -76,7 +76,7 @@
 
 	render();
 
-	leaflet.addEventListener('click', e => {
+  leaflet.addEventListener('click', (e) => {
 		let pageElem = getTarget(e.target, 'page');
 		if (pageElem) {
 			pageElem.classList.add('page-flipped');
@@ -108,8 +108,8 @@
 		leaflet.style.animation = 'none';
 	});
 
-	window.addEventListener('mousemove', e => {
+  window.addEventListener('mousemove', (e) => {
 		targetPos.x = e.clientX - window.innerWidth*0.7;
 		targetPos.y = e.clientY - window.innerHeight*0.7;
-	});
-})();
+  });
+}) ();

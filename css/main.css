@@ -7,6 +7,18 @@ body {
 	background-size: auto 130px;
 	perspective: 1500px;
 }
+.hand {
+  position: absolute;
+  width: 400px;
+  z-index: 10;
+}
+.hand img {
+  transform-origin: left top;
+  transition: 1s;
+}
+.zoom-in .hand img {
+  transform: scale(2);
+}
 .leaflet {
 	position: absolute;
 	left: 0;
@@ -18,6 +30,7 @@ body {
 	margin: auto;
   transform-style: preserve-3d;
   transition: 1s;
+  cursor: pointer;
 }
 .page {
 	position: absolute;
